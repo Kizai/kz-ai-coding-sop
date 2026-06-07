@@ -1,0 +1,5 @@
+interface:
+  display_name: "ECC Operator System"
+  short_description: "Audit cross-harness agent workflow readiness"
+  default_prompt: "Use ecc-operator-system to audit this agent workflow setup."
+

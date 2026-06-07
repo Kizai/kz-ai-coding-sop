@@ -1,0 +1,5 @@
+interface:
+  display_name: "Waza Router"
+  short_description: "Route work to Waza engineering habits"
+  default_prompt: "Use waza-router to choose the right engineering habit workflow."
+

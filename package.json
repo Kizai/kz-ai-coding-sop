@@ -1,0 +1,42 @@
+{
+  "name": "kz-sop",
+  "version": "0.1.0",
+  "description": "Kizai's controlled AI Coding SOP toolkit for Superpowers-first agent-based software development.",
+  "type": "module",
+  "bin": {
+    "kz-sop": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "skills",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "tsup src/cli.ts --format esm --dts false",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai-coding",
+    "controlled-ai-coding",
+    "codex",
+    "claude-code",
+    "agents",
+    "superpowers",
+    "skills",
+    "sop",
+    "scaffold"
+  ],
+  "author": "Kizai",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "tsup": "latest",
+    "typescript": "latest"
+  }
+}

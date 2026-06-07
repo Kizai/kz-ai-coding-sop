@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kz-ai-coding-sop"
+version = "0.1.0"
+description = "Kizai's controlled AI Coding SOP toolkit for Superpowers-first agent-based software development."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "Kizai" }
+]
+keywords = [
+  "ai-coding",
+  "controlled-ai-coding",
+  "codex",
+  "claude-code",
+  "agents",
+  "superpowers",
+  "skills",
+  "sop"
+]
+
+[project.scripts]
+kz-sop = "kz_sop.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Kizai/kz-ai-coding-sop"
+Repository = "https://github.com/Kizai/kz-ai-coding-sop"
+Issues = "https://github.com/Kizai/kz-ai-coding-sop/issues"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/kz_sop",
+  "/templates",
+  "/skills",
+  "/docs",
+  "/README.md",
+  "/LICENSE",
+  "/CHANGELOG.md",
+  "/THIRD_PARTY_NOTICES.md",
+  "/package.json",
+  "/tsconfig.json",
+  "/src"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["kz_sop"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"templates" = "templates"
+"skills" = "skills"
+"README.md" = "README.md"
+"LICENSE" = "LICENSE"
+"CHANGELOG.md" = "CHANGELOG.md"
+"THIRD_PARTY_NOTICES.md" = "THIRD_PARTY_NOTICES.md"
