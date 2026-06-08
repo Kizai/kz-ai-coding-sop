@@ -4,7 +4,7 @@
   "description": "Kizai's controlled AI Coding SOP toolkit for Superpowers-first agent-based software development.",
   "type": "module",
   "bin": {
-    "kz-sop": "./dist/cli.js"
+    "kz-sop": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "dev": "tsx src/cli.ts",
-    "build": "tsup src/cli.ts --format esm --dts false",
+    "build": "tsup src/cli.ts --format esm",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -33,6 +33,14 @@
   ],
   "author": "Kizai",
   "license": "MIT",
+  "homepage": "https://github.com/Kizai/kz-ai-coding-sop#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kizai/kz-ai-coding-sop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kizai/kz-ai-coding-sop/issues"
+  },
   "devDependencies": {
     "@types/node": "latest",
     "tsx": "latest",
