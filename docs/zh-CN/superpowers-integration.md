@@ -2,7 +2,13 @@
 
 KZ SOP 是 Superpowers-first。
 
-Superpowers 提供经过验证的 Agent 工作流技能。KZ SOP 提供项目级治理文件，用来告诉 Agent 什么时候、如何优先使用这些技能。
+KZ SOP 是 Kizai 自己的项目级开发流程和治理层。Superpowers 是上游 skill/workflow 项目；当当前 Agent 环境已经安装这些 skills 时，KZ SOP 可以把 Agent 路由到对应工作流。
+
+KZ SOP 提供仓库级规则、提示词、检查清单和 fallback 行为。Superpowers 提供可复用的工作流 skills。两者有意保持独立。
+
+KZ 仓库：
+
+- https://github.com/Kizai/kz-ai-coding-sop
 
 ## Attribution
 
@@ -11,7 +17,7 @@ Superpowers 由 Jesse Vincent 和 Prime Radiant 维护。
 - 仓库：https://github.com/obra/superpowers
 - 许可证：MIT
 
-KZ SOP v0.1.0 不复制、不内置、不修改 Superpowers skills。
+KZ SOP v0.1.x 不拥有、不复制、不内置、不修改，也不声称作者身份属于 Superpowers skills。
 
 ## 默认 Skill 路由
 

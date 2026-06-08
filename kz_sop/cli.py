@@ -177,7 +177,7 @@ def list_skills() -> int:
     print("\nPackaged KZ-owned skills:")
     kz_skills = list_kz_skills()
     if not kz_skills:
-        print("- none in v0.1.0")
+        print("- none")
         return 0
 
     for skill in kz_skills:
@@ -222,4 +222,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

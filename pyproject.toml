@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "kz-ai-coding-sop"
-version = "0.1.0"
-description = "Kizai's controlled AI Coding SOP toolkit for Superpowers-first agent-based software development."
+version = "0.1.1"
+description = "Kizai's project-level AI Coding SOP toolkit for controlled agent workflow governance."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"

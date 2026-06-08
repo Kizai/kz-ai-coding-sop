@@ -196,7 +196,7 @@ function listSkills(): void {
   const kzSkills = listKzSkills();
   console.log("\nPackaged KZ-owned skills:");
   if (kzSkills.length === 0) {
-    console.log("- none in v0.1.0");
+    console.log("- none");
     return;
   }
 
@@ -243,4 +243,3 @@ switch (command) {
     help();
     process.exitCode = 1;
 }
-

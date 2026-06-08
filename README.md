@@ -1,6 +1,6 @@
 # kz-ai-coding-sop
 
-Kizai's controlled AI Coding SOP for agent-based software development.
+Kizai's own AI Coding SOP for controlled, agent-based software development.
 
 中文定位：Kizai 的可控式 AI Coding 标准作业流程。
 
@@ -8,25 +8,30 @@ Controlled AI coding means the human defines the rules, the agent follows the wo
 
 ## What This Is
 
-KZ AI Coding SOP is a project governance overlay for AI coding agents. It initializes a project with shared instructions for Codex, Claude Code, Cursor, Antigravity, OpenClaw, and similar agents.
+KZ AI Coding SOP is Kizai's project-level SOP and governance toolkit for AI coding agents. Its repository is:
 
-It is Superpowers-first: KZ SOP does not duplicate or vendor the Superpowers workflow skills. Instead, it routes agents toward the proven Superpowers skills when they are available, and keeps KZ-specific project rules in the repository.
+- KZ repository: https://github.com/Kizai/kz-ai-coding-sop
 
-Superpowers is maintained by Jesse Vincent and Prime Radiant:
+It initializes a project with shared instructions for Codex, Claude Code, Cursor, Antigravity, OpenClaw, and similar agents.
+
+KZ SOP uses a Superpowers-first workflow: when Superpowers skills are available in the current agent harness, KZ SOP routes agents to those skills as the workflow baseline. KZ SOP does not own, copy, bundle, modify, or claim authorship of Superpowers.
+
+Superpowers is an upstream skill/workflow project maintained by Jesse Vincent and Prime Radiant:
 
 - Repository: https://github.com/obra/superpowers
 - License: MIT
-- Public validation: 220k+ GitHub stars at the time KZ SOP v0.1 was planned
 
-## Current Status
+In short: KZ SOP is Kizai's own development process and repository-level rules; Superpowers is an upstream skill capability that KZ SOP can reference and route to when installed.
 
-This repository is ready for a first npm/PyPI release, but the public install commands only work after you publish the packages:
+## Package Status
+
+KZ SOP is distributed through npm and PyPI:
 
 - npm package: `kz-sop`
 - PyPI package: `kz-ai-coding-sop`
 - CLI command: `kz-sop`
 
-Before publishing, use the local development commands below.
+Public install commands work for versions already published on the corresponding package registry. For local development or pre-release verification, use the local commands below.
 
 ## Quick Start After Publishing
 
@@ -90,7 +95,7 @@ kz-sop skills list
 ```
 
 - `init` generates KZ SOP files without overwriting existing files.
-- `update` is a safe non-overwriting sync in v0.1.0.
+- `update` is a safe non-overwriting sync in v0.1.x.
 - `doctor` checks required KZ files and reminds you to confirm Superpowers is installed in your agent harness.
 - `skills list` lists recommended upstream Superpowers skills and any packaged KZ-owned skills.
 
@@ -126,7 +131,7 @@ Superpowers should be installed separately in each agent harness you use. KZ SOP
 
 ## Packaged Skills
 
-KZ SOP v0.1.0 includes a small curated set of packaged skills:
+KZ SOP v0.1.x includes a small curated set of packaged skills:
 
 - `startup-pressure-test`: pressure-test startup ideas before building.
 - `grill-me`: stress-test a plan or design through focused questioning.
