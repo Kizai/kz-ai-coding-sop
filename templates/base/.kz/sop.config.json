@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "name": "KZ AI Coding SOP",
+  "version": "0.1.3",
+  "mode": "superpowers-first",
+  "repository": "https://github.com/Kizai/kz-ai-coding-sop",
+  "superpowers": {
+    "requiredWhenAvailable": true,
+    "repository": "https://github.com/obra/superpowers",
+    "license": "MIT",
+    "autoInstall": false
+  },
+  "generatedFiles": [
+    "AGENTS.md",
+    ".kz/sop.config.json"
+  ],
+  "optionalHarnessFiles": {
+    "cursorRuleGenerated": false,
+    "claudeFileGenerated": false,
+    "splitAiDirectoryGenerated": false
+  }
+}

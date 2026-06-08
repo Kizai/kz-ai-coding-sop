@@ -116,6 +116,12 @@ function init(): void {
   const baseTemplate = path.join(packageRoot, "templates", "base");
   const stackTemplate = path.join(packageRoot, "templates", stack);
 
+  if (!fs.existsSync(baseTemplate)) {
+    console.error(`KZ AI Coding SOP template directory is missing: ${baseTemplate}`);
+    process.exitCode = 1;
+    return;
+  }
+
   const baseResult = copyDir(baseTemplate, cwd);
   const stackResult = stack === "base" ? { created: 0, skipped: 0 } : copyDir(stackTemplate, cwd);
   const gitignoreUpdated = appendGitignore();

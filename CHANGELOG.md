@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Restored the core `templates/base` files in the published npm package.
+- Added tests to prevent `init` from silently succeeding when templates are missing.
+
 ## 0.1.2
 
 - Reduced default `kz-sop init` output to two core SOP files: `AGENTS.md` and `.kz/sop.config.json`.

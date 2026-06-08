@@ -98,7 +98,15 @@ def detect_stack() -> str:
 def init() -> int:
     stack = detect_stack()
 
-    base_created, base_skipped = copy_dir(ROOT / "templates" / "base", CWD)
+    base_template = ROOT / "templates" / "base"
+    if not base_template.exists():
+        print(
+            f"KZ AI Coding SOP template directory is missing: {base_template}",
+            file=sys.stderr,
+        )
+        return 1
+
+    base_created, base_skipped = copy_dir(base_template, CWD)
     if stack == "base":
         stack_created, stack_skipped = 0, 0
     else:
