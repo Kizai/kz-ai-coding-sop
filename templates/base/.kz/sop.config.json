@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "name": "KZ AI Coding SOP",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "mode": "superpowers-first",
+  "repository": "https://github.com/Kizai/kz-ai-coding-sop",
   "superpowers": {
     "requiredWhenAvailable": true,
     "repository": "https://github.com/obra/superpowers",
@@ -11,15 +12,11 @@
   },
   "generatedFiles": [
     "AGENTS.md",
-    "CLAUDE.md",
-    ".ai/AGENT_ENTRY.md",
-    ".ai/CORE_RULES.md",
-    ".ai/CODING_STANDARD.md",
-    ".ai/ARCHITECTURE_STANDARD.md",
-    ".ai/WORKFLOW.md",
-    ".ai/SKILL_INDEX.md",
-    ".ai/REVIEW_CHECKLIST.md",
-    ".cursor/rules/kz-ai-rules.mdc"
-  ]
+    ".kz/sop.config.json"
+  ],
+  "optionalHarnessFiles": {
+    "cursorRuleGenerated": false,
+    "claudeFileGenerated": false,
+    "splitAiDirectoryGenerated": false
+  }
 }
-

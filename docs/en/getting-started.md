@@ -33,19 +33,12 @@ Commit these files:
 
 ```txt
 AGENTS.md
-CLAUDE.md
-.ai/*.md
-.cursor/rules/*.mdc
 .kz/sop.config.json
 ```
 
 Do not commit local runtime paths:
 
 ```txt
-.ai/cache/
-.ai/tmp/
-.ai/logs/
-.ai/session/
 .kz/cache/
 .kz/tmp/
 ```
@@ -54,8 +47,7 @@ Do not commit local runtime paths:
 
 ```txt
 Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md and .ai/AGENT_ENTRY.md.
+First read AGENTS.md.
 Do not write code immediately.
 Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
 ```
-

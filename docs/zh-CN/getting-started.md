@@ -33,19 +33,12 @@ KZ SOP 不会自动安装第三方插件。你需要分别在 Codex、Claude Cod
 
 ```txt
 AGENTS.md
-CLAUDE.md
-.ai/*.md
-.cursor/rules/*.mdc
 .kz/sop.config.json
 ```
 
 不要提交本地运行文件：
 
 ```txt
-.ai/cache/
-.ai/tmp/
-.ai/logs/
-.ai/session/
 .kz/cache/
 .kz/tmp/
 ```
@@ -54,8 +47,7 @@ CLAUDE.md
 
 ```txt
 Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md and .ai/AGENT_ENTRY.md.
+First read AGENTS.md.
 Do not write code immediately.
 Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
 ```
-

@@ -18,18 +18,6 @@ kz-sop init
 
 ```txt
 AGENTS.md
-CLAUDE.md
-.ai/
-  AGENT_ENTRY.md
-  CORE_RULES.md
-  CODING_STANDARD.md
-  ARCHITECTURE_STANDARD.md
-  WORKFLOW.md
-  SKILL_INDEX.md
-  REVIEW_CHECKLIST.md
-.cursor/
-  rules/
-    kz-ai-rules.mdc
 .kz/
   sop.config.json
 ```
@@ -43,4 +31,3 @@ kz-sop doctor
 ```
 
 `doctor` 会检查必需的 KZ 文件是否存在，并提醒你确认每个 Agent 环境都已经安装 Superpowers。
-

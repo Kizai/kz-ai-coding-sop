@@ -12,9 +12,8 @@ AI Agent 真正可靠的时候，是在遵守明确流程的时候。KZ SOP 默�
 
 ## 项目规则跟随项目
 
-Agent 规则应该提交到项目仓库里，让不同 Agent 工具看到同一套要求。`AGENTS.md`、`.ai/`、`.cursor/rules/` 和 `.kz/` 用来沉淀这些规则。
+Agent 规则应该提交到项目仓库里，让不同 Agent 工具看到同一套要求。`AGENTS.md` 是主要 SOP 入口，`.kz/` 用来保存 KZ 的机器可读元数据。
 
 ## 验证优先于口头声明
 
 Agent 必须说明实际验证了什么。没有跑测试就不能说测试通过。没有安装 Superpowers 时，也必须明确说明，并执行 KZ fallback 工作流。
-

@@ -123,7 +123,7 @@ kz-sop init
 Then commit the SOP files:
 
 ```bash
-git add AGENTS.md CLAUDE.md .ai .cursor .kz .gitignore
+git add AGENTS.md .kz .gitignore
 git commit -m "chore: initialize KZ AI Coding SOP"
 ```
 
@@ -144,18 +144,6 @@ These extend KZ SOP without changing the default Superpowers-first workflow. See
 
 ```txt
 AGENTS.md
-CLAUDE.md
-.ai/
-  AGENT_ENTRY.md
-  CORE_RULES.md
-  CODING_STANDARD.md
-  ARCHITECTURE_STANDARD.md
-  WORKFLOW.md
-  SKILL_INDEX.md
-  REVIEW_CHECKLIST.md
-.cursor/
-  rules/
-    kz-ai-rules.mdc
 .kz/
   sop.config.json
 .gitignore
@@ -165,10 +153,6 @@ The `.gitignore` update only adds local runtime paths:
 
 ```gitignore
 # KZ AI Coding SOP local runtime files
-.ai/cache/
-.ai/tmp/
-.ai/logs/
-.ai/session/
 .kz/cache/
 .kz/tmp/
 ```
@@ -177,7 +161,7 @@ The `.gitignore` update only adds local runtime paths:
 
 ```txt
 Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md and .ai/AGENT_ENTRY.md.
+First read AGENTS.md.
 Do not write code immediately.
 Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
 ```

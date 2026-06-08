@@ -12,9 +12,8 @@ AI agents are effective when they use a disciplined process. KZ SOP uses Superpo
 
 ## Project Rules Live With The Project
 
-Agent rules should be committed to the repository so every harness sees the same expectations. `AGENTS.md`, `.ai/`, `.cursor/rules/`, and `.kz/` make the workflow explicit and portable.
+Agent rules should be committed to the repository so every harness sees the same expectations. `AGENTS.md` is the primary SOP entrypoint, and `.kz/` keeps machine-readable KZ metadata.
 
 ## Verification Beats Claims
 
 The agent must report what it actually verified. If tests were not run, it must say so. If Superpowers is unavailable, it must say so and follow the fallback workflow.
-

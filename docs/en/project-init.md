@@ -14,18 +14,6 @@ The command is non-destructive:
 
 ```txt
 AGENTS.md
-CLAUDE.md
-.ai/
-  AGENT_ENTRY.md
-  CORE_RULES.md
-  CODING_STANDARD.md
-  ARCHITECTURE_STANDARD.md
-  WORKFLOW.md
-  SKILL_INDEX.md
-  REVIEW_CHECKLIST.md
-.cursor/
-  rules/
-    kz-ai-rules.mdc
 .kz/
   sop.config.json
 ```
@@ -39,4 +27,3 @@ kz-sop doctor
 ```
 
 `doctor` checks whether required KZ files exist and reminds you to confirm Superpowers is installed in each agent harness.
-

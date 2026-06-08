@@ -14,15 +14,6 @@ const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 
 const requiredFiles = [
   "AGENTS.md",
-  "CLAUDE.md",
-  ".ai/AGENT_ENTRY.md",
-  ".ai/CORE_RULES.md",
-  ".ai/CODING_STANDARD.md",
-  ".ai/ARCHITECTURE_STANDARD.md",
-  ".ai/WORKFLOW.md",
-  ".ai/SKILL_INDEX.md",
-  ".ai/REVIEW_CHECKLIST.md",
-  ".cursor/rules/kz-ai-rules.mdc",
   ".kz/sop.config.json"
 ];
 
@@ -41,10 +32,6 @@ const superpowersSkills = [
 const gitignoreMarker = "KZ AI Coding SOP local runtime files";
 const gitignoreBlock = [
   "# KZ AI Coding SOP local runtime files",
-  ".ai/cache/",
-  ".ai/tmp/",
-  ".ai/logs/",
-  ".ai/session/",
   ".kz/cache/",
   ".kz/tmp/",
   ""
@@ -145,7 +132,7 @@ Skipped existing files: ${skipped}
 Next prompt for your coding agent:
 
 Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md and .ai/AGENT_ENTRY.md.
+First read AGENTS.md.
 Do not write code immediately.
 Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
 `);

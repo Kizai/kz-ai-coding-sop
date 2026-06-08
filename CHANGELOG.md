@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2
+
+- Reduced default `kz-sop init` output to two core SOP files: `AGENTS.md` and `.kz/sop.config.json`.
+- Stopped generating `.cursor/`, `.ai/`, and `CLAUDE.md` files by default.
+- Merged the split SOP guidance into the generated `AGENTS.md` entrypoint.
+- Minimized the `.gitignore` runtime block to `.kz/cache/` and `.kz/tmp/`.
+- Updated `doctor` and generated config metadata for the two-file core mode.
+
 ## 0.1.1
 
 - Clarified that KZ AI Coding SOP is Kizai's own project-level SOP and repository.
