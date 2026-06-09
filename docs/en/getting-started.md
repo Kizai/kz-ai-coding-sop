@@ -27,21 +27,16 @@ KZ SOP does not auto-install third-party plugins. Install Superpowers separately
 
 Upstream: https://github.com/obra/superpowers
 
-## 3. Commit The Generated Rules
+## 3. Keep Initialization Low-Noise
 
-Commit these files:
+By default, `kz-sop init` adds the generated SOP files to `.gitignore`:
 
 ```txt
 AGENTS.md
-.kz/sop.config.json
+.kz/
 ```
 
-Do not commit local runtime paths:
-
-```txt
-.kz/cache/
-.kz/tmp/
-```
+If you want to make KZ SOP a shared team contract, remove those ignore entries intentionally and commit the files.
 
 ## 4. First Agent Prompt
 

@@ -60,6 +60,7 @@ Use packaged KZ skills when the task matches their narrower trigger:
 | --- | --- |
 | Pressure-testing a startup idea before building | `startup-pressure-test` |
 | Stress-testing a plan or design with focused questions | `grill-me` |
+| Reducing common LLM coding mistakes while writing, reviewing, or refactoring code | `karpathy-guidelines` |
 | Routing to Waza-style engineering habit workflows | `waza-router` |
 | Auditing cross-harness agent workflow readiness | `ecc-operator-system` |
 

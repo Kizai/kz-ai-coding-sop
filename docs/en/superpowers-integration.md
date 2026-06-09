@@ -39,11 +39,12 @@ KZ-owned skills should be added only when they are reusable across projects. The
 
 ## Supplemental Packaged Skills
 
-KZ SOP includes a small curated set of packaged skills from MIT-licensed sources:
+KZ SOP includes a small curated set of supplemental packaged skills:
 
 - `startup-pressure-test`
 - `grill-me`
+- `karpathy-guidelines`
 - `waza-router`
 - `ecc-operator-system`
 
-They supplement the SOP for startup validation, plan interrogation, Waza routing, and ECC-style operator readiness. They do not replace Superpowers as the default engineering workflow.
+They supplement the SOP for startup validation, plan interrogation, LLM coding discipline, Waza routing, and ECC-style operator readiness. They do not replace Superpowers as the default engineering workflow.

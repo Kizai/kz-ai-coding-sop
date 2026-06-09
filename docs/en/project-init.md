@@ -6,7 +6,7 @@ The command is non-destructive:
 
 - It creates missing KZ SOP files.
 - It skips files that already exist.
-- It appends one KZ runtime block to `.gitignore`.
+- It appends one KZ generated-files block to `.gitignore`.
 - It does not overwrite project code.
 - It does not install Superpowers or any other third-party plugin.
 
@@ -16,6 +16,14 @@ The command is non-destructive:
 AGENTS.md
 .kz/
   sop.config.json
+```
+
+By default, the generated files are ignored to avoid changing the user's normal commit surface:
+
+```gitignore
+# KZ AI Coding SOP generated files
+.kz/
+AGENTS.md
 ```
 
 ## Doctor

@@ -39,11 +39,12 @@ KZ 自有 Skill 只应该在跨项目可复用时加入。它们应该遵守和 
 
 ## 补充内置 Skills
 
-KZ SOP 现在包含一组精选 MIT 来源的补充 skills：
+KZ SOP 现在包含一组精选补充 skills：
 
 - `startup-pressure-test`
 - `grill-me`
+- `karpathy-guidelines`
 - `waza-router`
 - `ecc-operator-system`
 
-它们用于补充创业想法验证、方案拷问、Waza 路由和 ECC 风格的多 Agent 工具链审计，不替代 Superpowers 作为默认工程工作流。
+它们用于补充创业想法验证、方案拷问、LLM Coding 纪律、Waza 路由和 ECC 风格的多 Agent 工具链审计，不替代 Superpowers 作为默认工程工作流。

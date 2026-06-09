@@ -10,7 +10,7 @@ kz-sop init
 
 - 只创建缺失的 KZ SOP 文件。
 - 已存在的文件会跳过。
-- 只向 `.gitignore` 追加一次 KZ 本地运行目录。
+- 只向 `.gitignore` 追加一次 KZ 生成文件规则。
 - 不覆盖业务代码。
 - 不自动安装 Superpowers 或其他第三方插件。
 
@@ -20,6 +20,14 @@ kz-sop init
 AGENTS.md
 .kz/
   sop.config.json
+```
+
+默认会忽略生成文件，避免影响用户原有提交范围：
+
+```gitignore
+# KZ AI Coding SOP generated files
+.kz/
+AGENTS.md
 ```
 
 ## Doctor

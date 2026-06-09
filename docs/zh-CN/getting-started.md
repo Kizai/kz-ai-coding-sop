@@ -27,21 +27,16 @@ KZ SOP 不会自动安装第三方插件。你需要分别在 Codex、Claude Cod
 
 上游仓库：https://github.com/obra/superpowers
 
-## 3. 提交生成的规则文件
+## 3. 保持初始化低噪音
 
-建议提交：
+默认情况下，`kz-sop init` 会把生成的 SOP 文件加入 `.gitignore`：
 
 ```txt
 AGENTS.md
-.kz/sop.config.json
+.kz/
 ```
 
-不要提交本地运行文件：
-
-```txt
-.kz/cache/
-.kz/tmp/
-```
+如果你想把 KZ SOP 作为团队共享契约，再主动移除这些 ignore 规则并提交文件。
 
 ## 4. 第一次让 Agent 进入项目
 

@@ -75,10 +75,35 @@ class InitCoreModeTest(unittest.TestCase):
             gitignore = (tmp_path / ".gitignore").read_text(encoding="utf-8")
 
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertIn(".kz/cache/", gitignore)
-            self.assertIn(".kz/tmp/", gitignore)
+            self.assertIn(".kz", gitignore)
+            self.assertIn("AGENTS.md", gitignore)
+            self.assertNotIn(".kz/cache/", gitignore)
+            self.assertNotIn(".kz/tmp/", gitignore)
             self.assertNotIn(".ai/cache/", gitignore)
             self.assertNotIn(".ai/tmp/", gitignore)
+
+    def test_gitignore_appends_core_paths_to_existing_file(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            tmp_path = Path(directory)
+            gitignore = tmp_path / ".gitignore"
+            gitignore.write_text("node_modules/\n", encoding="utf-8")
+
+            result = run_cli("init", cwd=tmp_path)
+            content = gitignore.read_text(encoding="utf-8")
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(content.startswith("node_modules/\n"))
+            self.assertIn("# KZ AI Coding SOP generated files", content)
+            self.assertIn(".kz", content)
+            self.assertIn("AGENTS.md", content)
+
+    def test_skills_list_includes_karpathy_guidelines(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            tmp_path = Path(directory)
+            result = run_cli("skills", "list", cwd=tmp_path)
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("- karpathy-guidelines", result.stdout)
 
 
 if __name__ == "__main__":

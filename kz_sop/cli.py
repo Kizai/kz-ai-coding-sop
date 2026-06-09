@@ -24,12 +24,12 @@ SUPERPOWERS_SKILLS = [
     "executing-plans",
 ]
 
-GITIGNORE_MARKER = "KZ AI Coding SOP local runtime files"
+GITIGNORE_MARKER = "KZ AI Coding SOP generated files"
 GITIGNORE_BLOCK = "\n".join(
     [
-        "# KZ AI Coding SOP local runtime files",
-        ".kz/cache/",
-        ".kz/tmp/",
+        "# KZ AI Coding SOP generated files",
+        ".kz/",
+        "AGENTS.md",
         "",
     ]
 )

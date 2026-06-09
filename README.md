@@ -120,12 +120,15 @@ pip install kz-ai-coding-sop
 kz-sop init
 ```
 
-Then commit the SOP files:
+By default, `kz-sop init` keeps the generated SOP files local and low-noise by adding them to `.gitignore`:
 
-```bash
-git add AGENTS.md .kz .gitignore
-git commit -m "chore: initialize KZ AI Coding SOP"
+```gitignore
+# KZ AI Coding SOP generated files
+.kz/
+AGENTS.md
 ```
+
+If you want to make KZ SOP a shared team contract, remove those ignore entries intentionally and commit the files.
 
 Superpowers should be installed separately in each agent harness you use. KZ SOP does not auto-install third-party plugins.
 
@@ -135,10 +138,11 @@ KZ SOP v0.1.x includes a small curated set of packaged skills:
 
 - `startup-pressure-test`: pressure-test startup ideas before building.
 - `grill-me`: stress-test a plan or design through focused questioning.
+- `karpathy-guidelines`: reduce common LLM coding mistakes while writing, reviewing, or refactoring code.
 - `waza-router`: route work to Waza-style engineering habits.
 - `ecc-operator-system`: audit cross-harness AI agent workflow readiness.
 
-These extend KZ SOP without changing the default Superpowers-first workflow. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution.
+These extend KZ SOP without changing the default Superpowers-first workflow. Attribution for adapted upstream material is listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Generated Files
 
@@ -149,12 +153,12 @@ AGENTS.md
 .gitignore
 ```
 
-The `.gitignore` update only adds local runtime paths:
+The `.gitignore` update only adds generated SOP paths:
 
 ```gitignore
-# KZ AI Coding SOP local runtime files
-.kz/cache/
-.kz/tmp/
+# KZ AI Coding SOP generated files
+.kz/
+AGENTS.md
 ```
 
 ## Recommended First Prompt

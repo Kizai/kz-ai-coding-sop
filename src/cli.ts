@@ -29,11 +29,11 @@ const superpowersSkills = [
   "executing-plans"
 ];
 
-const gitignoreMarker = "KZ AI Coding SOP local runtime files";
+const gitignoreMarker = "KZ AI Coding SOP generated files";
 const gitignoreBlock = [
-  "# KZ AI Coding SOP local runtime files",
-  ".kz/cache/",
-  ".kz/tmp/",
+  "# KZ AI Coding SOP generated files",
+  ".kz/",
+  "AGENTS.md",
   ""
 ].join("\n");
 

@@ -12,7 +12,7 @@ AI agents are effective when they use a disciplined process. KZ SOP uses Superpo
 
 ## Project Rules Live With The Project
 
-Agent rules should be committed to the repository so every harness sees the same expectations. `AGENTS.md` is the primary SOP entrypoint, and `.kz/` keeps machine-readable KZ metadata.
+Agent rules can be committed intentionally when a team wants one shared contract, but `kz-sop init` keeps them ignored by default so adoption does not disturb an existing repository. `AGENTS.md` is the primary SOP entrypoint, and `.kz/` keeps machine-readable KZ metadata.
 
 ## Verification Beats Claims
 

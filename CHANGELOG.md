@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Changed `kz-sop init` to ignore generated SOP files by default via `.kz/` and `AGENTS.md`.
+- Added the packaged `karpathy-guidelines` skill.
+- Updated docs to describe low-noise local initialization and intentional team adoption.
+
 ## 0.1.3
 
 - Restored the core `templates/base` files in the published npm package.
