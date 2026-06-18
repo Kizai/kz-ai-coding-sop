@@ -35,12 +35,16 @@ GITIGNORE_BLOCK = "\n".join(
 )
 
 
-def copy_dir(src: Path, dest: Path) -> tuple[int, int]:
+def copy_dir(
+    src: Path, dest: Path, overwrite: bool = False
+) -> tuple[int, int, int, list[str]]:
     created = 0
+    refreshed = 0
     skipped = 0
+    refreshed_paths: list[str] = []
 
     if not src.exists():
-        return created, skipped
+        return created, refreshed, skipped, refreshed_paths
 
     for item in src.rglob("*"):
         if item.is_dir():
@@ -50,14 +54,21 @@ def copy_dir(src: Path, dest: Path) -> tuple[int, int]:
         target = dest / relative
 
         if target.exists():
-            skipped += 1
+            if not overwrite or target.read_bytes() == item.read_bytes():
+                skipped += 1
+                continue
+
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(item, target)
+            refreshed += 1
+            refreshed_paths.append(str(relative))
             continue
 
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(item, target)
         created += 1
 
-    return created, skipped
+    return created, refreshed, skipped, refreshed_paths
 
 
 def append_gitignore() -> bool:
@@ -95,7 +106,16 @@ def detect_stack() -> str:
     return "base"
 
 
-def init() -> int:
+NEXT_PROMPT = """Next prompt for your coding agent:
+
+Please follow KZ AI Coding SOP for this project.
+First read AGENTS.md.
+Do not write code immediately.
+Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps."""
+
+
+def init(mode: str = "init") -> int:
+    overwrite = mode == "update"
     stack = detect_stack()
 
     base_template = ROOT / "templates" / "base"
@@ -106,30 +126,49 @@ def init() -> int:
         )
         return 1
 
-    base_created, base_skipped = copy_dir(base_template, CWD)
+    base_created, base_refreshed, base_skipped, base_paths = copy_dir(
+        base_template, CWD, overwrite
+    )
     if stack == "base":
-        stack_created, stack_skipped = 0, 0
+        stack_created, stack_refreshed, stack_skipped, stack_paths = 0, 0, 0, []
     else:
-        stack_created, stack_skipped = copy_dir(ROOT / "templates" / stack, CWD)
+        stack_created, stack_refreshed, stack_skipped, stack_paths = copy_dir(
+            ROOT / "templates" / stack, CWD, overwrite
+        )
 
     gitignore_updated = append_gitignore()
 
-    print(
-        f"""KZ AI Coding SOP initialized.
+    created = base_created + stack_created
+    refreshed = base_refreshed + stack_refreshed
+    skipped = base_skipped + stack_skipped
+    refreshed_paths = base_paths + stack_paths
+
+    if mode == "update":
+        refreshed_list = f" ({', '.join(refreshed_paths)})" if refreshed_paths else ""
+        print(
+            f"""KZ AI Coding SOP updated.
 
 Detected stack: {stack}
-Created files: {base_created + stack_created}
-Skipped existing files: {base_skipped + stack_skipped}
+Refreshed files: {refreshed}{refreshed_list}
+Created files: {created}
+Unchanged files: {skipped}
 .gitignore updated: {"yes" if gitignore_updated else "no"}
 
-Next prompt for your coding agent:
-
-Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md.
-Do not write code immediately.
-Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
+{NEXT_PROMPT}
 """
-    )
+        )
+    else:
+        print(
+            f"""KZ AI Coding SOP initialized.
+
+Detected stack: {stack}
+Created files: {created}
+Skipped existing files: {skipped}
+.gitignore updated: {"yes" if gitignore_updated else "no"}
+
+{NEXT_PROMPT}
+"""
+        )
     return 0
 
 
@@ -196,7 +235,7 @@ def main() -> int:
     command = sys.argv[1] if len(sys.argv) > 1 else "help"
 
     if command in {"init", "update"}:
-        return init()
+        return init(command)
 
     if command == "doctor":
         return doctor()

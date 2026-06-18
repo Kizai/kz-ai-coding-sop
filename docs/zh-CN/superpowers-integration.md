@@ -44,7 +44,10 @@ KZ SOP 现在包含一组精选补充 skills：
 - `startup-pressure-test`
 - `grill-me`
 - `karpathy-guidelines`
+- `spec-driven-development`
 - `waza-router`
 - `ecc-operator-system`
+- `ralph-loop`
+- `planning-with-files`
 
-它们用于补充创业想法验证、方案拷问、LLM Coding 纪律、Waza 路由和 ECC 风格的多 Agent 工具链审计，不替代 Superpowers 作为默认工程工作流。
+它们用于补充创业想法验证、方案拷问、LLM Coding 纪律、规格先行契约、Waza 路由、ECC 风格的多 Agent 工具链审计、自主干净上下文循环，以及基于文件的持久化规划，不替代 Superpowers 作为默认工程工作流。

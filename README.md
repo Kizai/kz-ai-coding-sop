@@ -95,7 +95,7 @@ kz-sop skills list
 ```
 
 - `init` generates KZ SOP files without overwriting existing files.
-- `update` is a safe non-overwriting sync in v0.1.x.
+- `update` refreshes the KZ-owned generated files (`AGENTS.md`, `.kz/sop.config.json`) to the packaged version and prints which files changed. Re-run it after upgrading the package to pull the latest SOP. Local edits to those two files are overwritten, so keep project-specific notes elsewhere; everything else is left untouched.
 - `doctor` checks required KZ files and reminds you to confirm Superpowers is installed in your agent harness.
 - `skills list` lists recommended upstream Superpowers skills and any packaged KZ-owned skills.
 
@@ -139,8 +139,11 @@ KZ SOP v0.1.x includes a small curated set of packaged skills:
 - `startup-pressure-test`: pressure-test startup ideas before building.
 - `grill-me`: stress-test a plan or design through focused questioning.
 - `karpathy-guidelines`: reduce common LLM coding mistakes while writing, reviewing, or refactoring code.
+- `spec-driven-development`: lock a verifiable spec and acceptance contract before writing code.
 - `waza-router`: route work to Waza-style engineering habits.
 - `ecc-operator-system`: audit cross-harness AI agent workflow readiness.
+- `ralph-loop`: run an autonomous fresh-context iteration loop for work larger than one context window.
+- `planning-with-files`: keep a long task on disk so it survives context loss, compaction, or `/clear`.
 
 These extend KZ SOP without changing the default Superpowers-first workflow. Attribution for adapted upstream material is listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 

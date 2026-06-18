@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ralph Loop"
+  short_description: "Autonomous fresh-context iteration loop for big builds"
+  default_prompt: "Use ralph-loop to break this into right-sized stories and run iterations until they pass."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Planning With Files"
+  short_description: "Persistent on-disk working memory for long tasks"
+  default_prompt: "Use planning-with-files to plan this multi-step task on disk so it survives context loss."

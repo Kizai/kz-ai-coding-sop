@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+- Added three packaged skills: `ralph-loop` (autonomous fresh-context iteration loop, adapted from `snarktank/ralph`), `planning-with-files` (persistent on-disk working memory, adapted from `OthmanAdi/planning-with-files`), and `spec-driven-development` (KZ-owned: lock a verifiable spec before coding).
+- Changed `kz-sop update` to refresh the KZ-owned generated files (`AGENTS.md`, `.kz/sop.config.json`) to the packaged version and report which files changed, instead of behaving identically to `init`. Re-run `update` after upgrading the package to pull the latest SOP.
+- Added the new skills to the generated `AGENTS.md` routing table and updated docs and third-party notices.
+
 ## 0.1.4
 
 - Changed `kz-sop init` to ignore generated SOP files by default via `.kz/` and `AGENTS.md`.

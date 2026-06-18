@@ -6,7 +6,9 @@ import { fileURLToPath } from "node:url";
 
 type CopyResult = {
   created: number;
+  refreshed: number;
   skipped: number;
+  refreshedPaths: string[];
 };
 
 const cwd = process.cwd();
@@ -37,8 +39,8 @@ const gitignoreBlock = [
   ""
 ].join("\n");
 
-function copyDir(src: string, dest: string): CopyResult {
-  const result: CopyResult = { created: 0, skipped: 0 };
+function copyDir(src: string, dest: string, overwrite = false): CopyResult {
+  const result: CopyResult = { created: 0, refreshed: 0, skipped: 0, refreshedPaths: [] };
 
   if (!fs.existsSync(src)) {
     return result;
@@ -51,14 +53,24 @@ function copyDir(src: string, dest: string): CopyResult {
     const destPath = path.join(dest, item.name);
 
     if (item.isDirectory()) {
-      const nested = copyDir(srcPath, destPath);
+      const nested = copyDir(srcPath, destPath, overwrite);
       result.created += nested.created;
+      result.refreshed += nested.refreshed;
       result.skipped += nested.skipped;
+      result.refreshedPaths.push(...nested.refreshedPaths);
       continue;
     }
 
     if (fs.existsSync(destPath)) {
-      result.skipped += 1;
+      if (!overwrite || fs.readFileSync(srcPath).equals(fs.readFileSync(destPath))) {
+        result.skipped += 1;
+        continue;
+      }
+
+      fs.mkdirSync(path.dirname(destPath), { recursive: true });
+      fs.copyFileSync(srcPath, destPath);
+      result.refreshed += 1;
+      result.refreshedPaths.push(path.relative(cwd, destPath));
       continue;
     }
 
@@ -111,7 +123,15 @@ function detectStack(): string {
   return "base";
 }
 
-function init(): void {
+const nextPrompt = `Next prompt for your coding agent:
+
+Please follow KZ AI Coding SOP for this project.
+First read AGENTS.md.
+Do not write code immediately.
+Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.`;
+
+function init(mode: "init" | "update"): void {
+  const overwrite = mode === "update";
   const stack = detectStack();
   const baseTemplate = path.join(packageRoot, "templates", "base");
   const stackTemplate = path.join(packageRoot, "templates", stack);
@@ -122,11 +142,31 @@ function init(): void {
     return;
   }
 
-  const baseResult = copyDir(baseTemplate, cwd);
-  const stackResult = stack === "base" ? { created: 0, skipped: 0 } : copyDir(stackTemplate, cwd);
+  const baseResult = copyDir(baseTemplate, cwd, overwrite);
+  const stackResult =
+    stack === "base"
+      ? { created: 0, refreshed: 0, skipped: 0, refreshedPaths: [] }
+      : copyDir(stackTemplate, cwd, overwrite);
   const gitignoreUpdated = appendGitignore();
   const created = baseResult.created + stackResult.created;
+  const refreshed = baseResult.refreshed + stackResult.refreshed;
   const skipped = baseResult.skipped + stackResult.skipped;
+  const refreshedPaths = [...baseResult.refreshedPaths, ...stackResult.refreshedPaths];
+
+  if (mode === "update") {
+    const refreshedList = refreshedPaths.length === 0 ? "" : ` (${refreshedPaths.join(", ")})`;
+    console.log(`KZ AI Coding SOP updated.
+
+Detected stack: ${stack}
+Refreshed files: ${refreshed}${refreshedList}
+Created files: ${created}
+Unchanged files: ${skipped}
+.gitignore updated: ${gitignoreUpdated ? "yes" : "no"}
+
+${nextPrompt}
+`);
+    return;
+  }
 
   console.log(`KZ AI Coding SOP initialized.
 
@@ -135,12 +175,7 @@ Created files: ${created}
 Skipped existing files: ${skipped}
 .gitignore updated: ${gitignoreUpdated ? "yes" : "no"}
 
-Next prompt for your coding agent:
-
-Please follow KZ AI Coding SOP for this project.
-First read AGENTS.md.
-Do not write code immediately.
-Start by reporting project understanding, stack detection, structure analysis, plan, relevant Superpowers skills, risks, and verification steps.
+${nextPrompt}
 `);
 }
 
@@ -214,7 +249,7 @@ const command = process.argv[2] ?? "help";
 switch (command) {
   case "init":
   case "update":
-    init();
+    init(command);
     break;
   case "doctor":
     process.exitCode = doctor();

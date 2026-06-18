@@ -1,6 +1,6 @@
 {
   "name": "kz-sop",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Kizai's project-level AI Coding SOP toolkit for controlled agent workflow governance.",
   "type": "module",
   "bin": {

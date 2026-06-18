@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "KZ AI Coding SOP",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "mode": "superpowers-first",
   "repository": "https://github.com/Kizai/kz-ai-coding-sop",
   "superpowers": {

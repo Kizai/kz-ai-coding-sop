@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec-Driven Development"
+  short_description: "Lock a verifiable spec before writing code"
+  default_prompt: "Use spec-driven-development to lock the spec and acceptance criteria before coding."

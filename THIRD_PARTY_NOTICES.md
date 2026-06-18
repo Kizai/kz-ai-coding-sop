@@ -30,6 +30,20 @@ KZ AI Coding SOP includes or adapts MIT-licensed material from the following ups
 - Copyright: Copyright (c) 2026 Affaan Mustafa
 - Used for: `skills/ecc-operator-system`
 
+## snarktank/ralph
+
+- Source: https://github.com/snarktank/ralph
+- License: MIT
+- Copyright: Copyright (c) 2026 snarktank
+- Used for: `skills/ralph-loop`
+
+## OthmanAdi/planning-with-files
+
+- Source: https://github.com/OthmanAdi/planning-with-files
+- License: MIT
+- Copyright: Copyright (c) 2026 Othman Adi
+- Used for: `skills/planning-with-files`
+
 ## MIT License Text
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

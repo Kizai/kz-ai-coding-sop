@@ -105,6 +105,46 @@ class InitCoreModeTest(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("- karpathy-guidelines", result.stdout)
 
+    def test_skills_list_includes_newly_packaged_skills(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            tmp_path = Path(directory)
+            result = run_cli("skills", "list", cwd=tmp_path)
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("- ralph-loop", result.stdout)
+            self.assertIn("- planning-with-files", result.stdout)
+            self.assertIn("- spec-driven-development", result.stdout)
+
+    def test_update_refreshes_modified_core_file(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            tmp_path = Path(directory)
+            run_cli("init", cwd=tmp_path)
+
+            agents_md = tmp_path / "AGENTS.md"
+            packaged = (ROOT / "templates" / "base" / "AGENTS.md").read_text(
+                encoding="utf-8"
+            )
+            agents_md.write_text("locally edited\n", encoding="utf-8")
+
+            result = run_cli("update", cwd=tmp_path)
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("KZ AI Coding SOP updated.", result.stdout)
+            self.assertIn("Refreshed files: 1 (AGENTS.md)", result.stdout)
+            self.assertEqual(agents_md.read_text(encoding="utf-8"), packaged)
+
+    def test_update_is_noop_when_core_files_match(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            tmp_path = Path(directory)
+            run_cli("init", cwd=tmp_path)
+
+            result = run_cli("update", cwd=tmp_path)
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("Refreshed files: 0", result.stdout)
+            self.assertIn("Unchanged files: 2", result.stdout)
+            self.assertIn(".gitignore updated: no", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

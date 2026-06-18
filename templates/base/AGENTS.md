@@ -61,6 +61,9 @@ Use packaged KZ skills when the task matches their narrower trigger:
 | Pressure-testing a startup idea before building | `startup-pressure-test` |
 | Stress-testing a plan or design with focused questions | `grill-me` |
 | Reducing common LLM coding mistakes while writing, reviewing, or refactoring code | `karpathy-guidelines` |
+| Locking a verifiable spec and acceptance contract before writing code | `spec-driven-development` |
+| Running an autonomous fresh-context loop, or building something larger than one context window | `ralph-loop` |
+| Keeping a multi-step or research task on disk so it survives context loss, compaction, or `/clear` | `planning-with-files` |
 | Routing to Waza-style engineering habit workflows | `waza-router` |
 | Auditing cross-harness agent workflow readiness | `ecc-operator-system` |
 

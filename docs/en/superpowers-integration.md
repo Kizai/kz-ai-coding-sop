@@ -44,7 +44,10 @@ KZ SOP includes a small curated set of supplemental packaged skills:
 - `startup-pressure-test`
 - `grill-me`
 - `karpathy-guidelines`
+- `spec-driven-development`
 - `waza-router`
 - `ecc-operator-system`
+- `ralph-loop`
+- `planning-with-files`
 
-They supplement the SOP for startup validation, plan interrogation, LLM coding discipline, Waza routing, and ECC-style operator readiness. They do not replace Superpowers as the default engineering workflow.
+They supplement the SOP for startup validation, plan interrogation, LLM coding discipline, spec-driven contracts, Waza routing, ECC-style operator readiness, autonomous fresh-context loops, and persistent file-based planning. They do not replace Superpowers as the default engineering workflow.
