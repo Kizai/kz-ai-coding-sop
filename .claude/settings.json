@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(curl -s https://registry.npmjs.org/kz-sop)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s https://pypi.org/pypi/kz-ai-coding-sop/json)"
     ]
   }
 }
